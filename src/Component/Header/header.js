@@ -3,10 +3,10 @@ import './header.scss'
 import {Link} from 'react-router-dom'
 import CartIcon from "../cart-icon/cartIcon";
 import CartDropDown from "../cart-dropDown/cartDrop";
+import { connect } from "react-redux"
 
 
-const Header = () => (
-    
+const Header = ({ hidden }) => (
     <div className='header'>
         <Link to='/'>
             <h1>Logo</h1>
@@ -17,8 +17,12 @@ const Header = () => (
     <Link className='option' to='/signin'>SIGN IN</Link>
     <CartIcon/>
         </div>
-    <CartDropDown/>
+        {hidden ? null : <CartDropDown/>}
     </div>
 )
 
-export default Header
+const mapStateToProps = ({ cart:{hidden} }) => ({
+    hidden
+})
+
+export default connect(mapStateToProps)(Header)
