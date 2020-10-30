@@ -6,11 +6,15 @@ import CartDropDown from "../cart-dropDown/cartDrop";
 import { connect } from "react-redux"
 import { selectCartHidden } from "../../redux/Cart/cartSelector";
 import { createStructuredSelector } from "reselect";
+import logo from '../../logo.svg';
+import '../../App.css';
 
 const Header = ({ hidden }) => (
     <div className='header'>
         <Link to='/'>
-            <h1>Logo</h1>
+        <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+      </header>
         </Link>
         <div className='options'>
         <Link className='option' to='/shop'>SHOP</Link>
